@@ -26,7 +26,10 @@ class Glass
         return this.name;
     }
     getBeverage(){
+        if (beverage !=null)
         return this.beverage;
+        else if (this.volume=0)
+            print("there is no beverage")
     }
     setVolume(volume,operation){
         if (operation=='pour' && this.volume+volume<this.maxvolume) 
@@ -42,9 +45,7 @@ class Glass
             console.log("Wrong operation");
         }
     }   
-    setBeverage(beverage){
-        this.beverage=beverage;
-    }
+   
    fill(beverage,volume){
     if (this.getMaxVolume()>volume){
         this.setVolume(volume,'pour');
