@@ -1,0 +1,11 @@
+const User = require('./User.js');
+const Beverage = require('./Beverage.js');
+const Glass=require( './Glass.js');
+const user=new User("Mika");
+const beverage=new Beverage("mint","tea",60);
+const glass=new Glass( 300, "mug");
+user.pourBeverageInGlass(beverage,glass,200);
+console.log(glass.getBeverage());
+console.log(glass.getVolume());
+user.drinkFromGlass(glass,200);
+console.log(glass.getVolume());

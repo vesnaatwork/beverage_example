@@ -1,0 +1,29 @@
+{
+  "name": "beverage_example",
+  "version": "1.0.0",
+  "description": "example for using oop in js and learning programmimg conceps and js specific features",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vesnaatwork/beverage_example.git"
+  },
+  "keywords": [
+    "javascript",
+    "oop",
+    "learning",
+    "programming",
+    "concepts"
+  ],
+  "author": "Vesna Petkovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vesnaatwork/beverage_example/issues"
+  },
+  "homepage": "https://github.com/vesnaatwork/beverage_example#readme",
+  "dependencies": {
+    "mocha": "^7.1.0"
+  }
+}
