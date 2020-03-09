@@ -2,7 +2,7 @@
 class Glass
 {
     constructor( maxvolume, name)
-    {   
+    {   //try catch
         if (maxvolume == null)
 
         console.log("this is required");
@@ -13,19 +13,9 @@ class Glass
         this.volume=0;
 
     }
-    setBeverage(beverage){
-        this.beverage=beverage;
-    }
-    getMaxVolume(){
-        return this.maxvolume;
-    }
-    getVolume(){
-        return this.volume;
-    }
-    getName(){
-        return this.name;
-    }
+  
     getBeverage(){
+        //throw
         if (beverage !=null)
         return this.beverage;
         else if (this.volume=0)
@@ -47,6 +37,7 @@ class Glass
     }   
    
    fill(beverage,volume){
+    //    throw exceptio
     if (this.getMaxVolume()>volume){
         this.setVolume(volume,'pour');
         }

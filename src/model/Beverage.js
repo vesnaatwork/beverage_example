@@ -7,7 +7,7 @@
         this.temperature=temperature;
 
     }
-     
+     //dodaj volume
     getName(){
         return this.name;
     }

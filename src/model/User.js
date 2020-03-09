@@ -9,7 +9,7 @@ class User
     getName(){
         return this.name;
     }
-
+//mora da leti, ne treba da je ovde eksplicitno, ali  spolja to izgleda kako 
     pourBeverageInGlass(beverage,glass,volume){
     glass.fill(beverage, volume);
     }
