@@ -1,13 +1,22 @@
-
 class User
 {
-    constructor(name,pubsub)
+    constructor(name)
     {
-        if (name==null)
-            throw  new ValidationError("Name can't be null");
         this.name=name;
-        pubsub.publish("user",{name:this.name});
+
     }
+     
+    getName(){
+        return this.name;
+    }
+//mora da leti, ne treba da je ovde eksplicitno, ali  spolja to izgleda kako 
+    pourBeverageInGlass(beverage,glass,volume){
+    glass.fill(beverage, volume);
+    }
+    
+    drinkFromGlass(glass,volume){
+     glass.setVolume(volume,'spill');
+    }
+
 }
 module.exports = User;
-//object literal je json data transfer object, dto

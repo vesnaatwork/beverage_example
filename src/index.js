@@ -1,3 +1,4 @@
+
 const PubSub = require('./PubSub')
 const User = require('./model/User');
 const Beverage = require('./model/Beverage');
@@ -26,3 +27,10 @@ try {
 } catch (error) {
     console.log(error);
 }
+
+
+//command query separation - fja moze biti komanda ili query
+//exception ako je query samo vracam taj tip ili exception
+//commanda ako nisu ok ulazni podaci exception nisam uspeo ili ne mogu. komanda ce se izvrsiti 
+//mogu da budu tipovi greske, mogu da kastujem error
+//SOLID princip
