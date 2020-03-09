@@ -1,21 +1,24 @@
-const PubSub = require("./PubSub");
-const User = require("./model/User");
-const Beverage = require("./model/Beverage");
-const Glass = require("./model/Glass");
-const Presenter = require("./Presenter");
-const Logger = require("./Logger");
 
-try {
-  const ps = new PubSub();
-  const presenter = new Presenter(ps);
-  const logger = new Logger(ps);
-  const user = new User(null, ps);
-  const beverage = new Beverage("mint", "tea", 200, ps);
-  const glass = new Glass(300, "mug", ps);
-  glass.fill(beverage, ps);
-} catch (error) {
-  console.log(error);
+const User = require('./model/User.js/index.js');
+const Beverage = require('./model/Beverage.js/index.js');
+const Glass=require( './model/Glass.js/index.js');
+const user=new User("Mika");
+const beverage=new Beverage("mint","tea",60);
+const glass=new Glass( 300, "mug");
+try{
+user.pourBeverageInGlass(beverage,glass,200);
 }
+catch (error){
+    console.log(typeof(error));
+
+}
+
+console.log(glass.getBeverage());
+console.log(glass.getVolume());
+user.drinkFromGlass(glass,200);
+console.log(glass.getVolume());
+
+
 
 // da ima komand line iterfeejs, sa nekoliko ulaza, npm paket koji apstrahuje opcije - command line program
 //

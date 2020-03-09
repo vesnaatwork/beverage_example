@@ -1,12 +1,22 @@
-const ValidationError = require("../Error.js");
-class User {
-  constructor(name, pubsub) {
-    if (name == null) {
-      pubsub.publish("error", { code: 400, name: "Name can't be null" });
-      throw new ValidationError("Name can't be null");
+class User
+{
+    constructor(name)
+    {
+        this.name=name;
+
     }
-    this.name = name;
-    pubsub.publish("user", { name: this.name });
-  }
+     
+    getName(){
+        return this.name;
+    }
+//mora da leti, ne treba da je ovde eksplicitno, ali  spolja to izgleda kako 
+    pourBeverageInGlass(beverage,glass,volume){
+    glass.fill(beverage, volume);
+    }
+    
+    drinkFromGlass(glass,volume){
+     glass.setVolume(volume,'spill');
+    }
+
 }
 module.exports = User;

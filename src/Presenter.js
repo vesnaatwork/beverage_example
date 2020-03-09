@@ -1,3 +1,4 @@
+
 class Presenter {
   constructor(pubsub) {
     pubsub.subscribe("user", this.onUser.bind(this));
@@ -35,3 +36,14 @@ module.exports = Presenter;
 //greske
 //warning
 // paket koji u komadnoj liniji boji izlaze, za razlicite tipover, error, warning, success
+
+//samo prezentovanje ispisivanje stvari sta se desilo
+//informativne poruke kreiran su objekti, nakon akcije
+//greske
+//warning
+//success
+
+
+//pub sub pattern
+//samo formatira poruke za izlaz i komunicira sa consolom
+

@@ -1,26 +1,25 @@
-const ValidationError = require("../Error.js");
-class Beverage {
-  constructor(name, type, volume, pubsub) {
-    if (name == null) {
-      throw new ValidationError("Name can't be null");
-    } else {
-      this.name = name;
+ class Beverage
+{
+    constructor(name,type, temperature)
+    {
+        this.name=name;
+        this.type=type;
+        this.temperature=temperature;
+
     }
-    if (type == null) {
-      throw new ValidationError("Type can't be null");
-    } else {
-      this.type = type;
+     //dodaj volume
+    getName(){
+        return this.name;
     }
-    if (volume == null) {
-      throw new ValidationError("Volume can't be null");
-    } else {
-      this.volume = volume;
+    getType(){
+        return this.type;
     }
-    pubsub.publish("beverage", {
-      name: this.name,
-      type: this.type,
-      volume: this.volume
-    });
-  }
+    getTemperature(){
+        return this.temperature;
+    }
+    setTemperature(t){
+        this.temperature-=t;
+    }
+    
 }
-module.exports = Beverage;
+module.exports = Beverage
