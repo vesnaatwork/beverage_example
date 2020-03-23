@@ -1,6 +1,10 @@
 log_files/
 node_modules/
+<<<<<<< HEAD
 .vscode/
+=======
+ .vscode/
+>>>>>>> Add changes for error handling
 # Logs
 logs
 *.log

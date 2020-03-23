@@ -46,4 +46,3 @@ module.exports = Presenter;
 
 //pub sub pattern
 //samo formatira poruke za izlaz i komunicira sa consolom
-
