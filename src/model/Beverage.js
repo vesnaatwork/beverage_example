@@ -1,24 +1,10 @@
  class Beverage
 {
-    constructor(name,type, temperature)
+    constructor(name,type, volume)
     {
         this.name=name;
         this.type=type;
-        this.temperature=temperature;
-
-    }
-     //dodaj volume
-    getName(){
-        return this.name;
-    }
-    getType(){
-        return this.type;
-    }
-    getTemperature(){
-        return this.temperature;
-    }
-    setTemperature(t){
-        this.temperature-=t;
+        this.volume=volume;
     }
     
 }

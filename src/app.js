@@ -1,23 +1,25 @@
 const User = require('./model/User.js/index.js');
 const Beverage = require('./model/Beverage.js/index.js');
 const Glass=require( './model/Glass.js/index.js');
-const user=new User("Mika");
-const beverage=new Beverage("mint","tea",60);
+const user=new User(null);
+const beverage=new Beverage("mint","tea",200);
 const glass=new Glass( 300, "mug");
-try{
-user.pourBeverageInGlass(beverage,glass,200);
-}
-catch (error){
-    console.log(typeof(error));
-
-}
-
+// try{
+//     glass.fill(beverage);
+// }
+// catch (error){
+//     console.log(error);
+// }
+// try{
+//     console(user.name+ " drinks from "+glass.name);
+// }
+// catch(error){
+//     console.log(error)
+// }
 console.log(glass.getBeverage());
 console.log(glass.getVolume());
 user.drinkFromGlass(glass,200);
 console.log(glass.getVolume());
-
-
 
 //command query separation - fja moze biti komanda ili query
 //exception ako je query samo vracam taj tip ili exception
