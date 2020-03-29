@@ -1,4 +1,3 @@
-
 class User
 {
     constructor(name,pubsub)
@@ -7,7 +6,8 @@ class User
             throw  new ValidationError("Name can't be null");
         this.name=name;
         pubsub.publish("user",{name:this.name});
+
     }
+
 }
 module.exports = User;
-//object literal je json data transfer object, dto
