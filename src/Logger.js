@@ -1,1 +1,46 @@
-//sta se sve desilo i snimam u fajl
+fs = require('fs');
+class Logger{
+    constructor(pubsub){
+        pubsub.subscribe("user", this.onUser.bind(this));
+        pubsub.subscribe("glass", this.onGlass.bind(this));
+        pubsub.subscribe("beverage", this.onBeverage.bind(this));
+        pubsub.subscribe("fill", this.onFill.bind(this));
+        this.filename='./log_files/log_'+new Date().getTime()+".txt";
+        fs.open(this.filename, 'w', function (err, file) {
+            if (err) throw err;
+            console.log('Saved!');
+          });
+          
+    }
+
+    onUser(data){
+        fs.writeFile(this.filename, `User ${data.name}`, function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+          })
+       
+    }
+
+    onGlass(data){
+        fs.writeFile(this.filename,`Glass volume= ${data.maxvolume}name =${data.name}`, function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+          })
+    }
+
+    onBeverage(data){
+        fs.writeFile(this.filename,`Beverage ${data.name} type ${data.type} volume ${data.volume}`, function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+          })
+    }
+
+    onFill(data){
+        fs.writeFile(`fill ${data.name} volume ${data.volume} beverage ${data.beverage}`, function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+          })
+    }
+   
+}
+module.exports = Logger;
