@@ -14,7 +14,7 @@ try {
     const beverage = new Beverage("mint", "tea", 200, ps);
     const glass = new Glass(300, "mug", ps);
     try {
-        glass.fill(beverage);
+        glass.fill(beverage,ps);
     } catch (error) {
         console.log(error);
     }
