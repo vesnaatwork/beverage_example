@@ -18,9 +18,9 @@
             throw new ValidationError("Volume can't be null")
         }
         else{
-            this.volume = name;
+            this.volume = volume;
         }
-        pubsub.publish ("Beverage", {name:this.name, type:this.type, volume:this.volume})
+        pubsub.publish ("beverage", {name:this.name, type:this.type, volume:this.volume})
     }
     
     
