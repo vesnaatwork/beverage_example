@@ -5,6 +5,7 @@ class Presenter{
         pubsub.subscribe("glass", this.onGlass.bind(this));
         pubsub.subscribe("beverage", this.onBeverage.bind(this));
         pubsub.subscribe("fill", this.onFill.bind(this));
+        pubsub.subscribe("error", this.onError.bind(this));
     }
 
     onUser(data){
@@ -21,6 +22,9 @@ class Presenter{
 
     onFill(data){
         console.log(`fill ${data.name} volume ${data.volume} beverage ${data.beverage}`);
+    }
+    onError(data){
+        console.log(`error ${data.name}`);
     }
 }
 module.exports = Presenter;

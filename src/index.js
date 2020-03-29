@@ -11,7 +11,7 @@ try {
     const ps = new PubSub();
     const presenter = new Presenter(ps);
     const logger = new Logger(ps);
-    const user=new User("Mika",ps);
+    const user=new User(null,ps);
     const beverage = new Beverage("mint", "tea", 200, ps);
     const glass = new Glass(300, "mug", ps);
     try {
