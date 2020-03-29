@@ -1,10 +1,14 @@
 log_files/
 node_modules/
 <<<<<<< HEAD
+<<<<<<< HEAD
 .vscode/
 =======
  .vscode/
 >>>>>>> Add changes for error handling
+=======
+.vscode/
+>>>>>>> Add pubsub for object creation
 # Logs
 logs
 *.log
