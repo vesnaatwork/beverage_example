@@ -5,42 +5,54 @@ class Logger{
         pubsub.subscribe("glass", this.onGlass.bind(this));
         pubsub.subscribe("beverage", this.onBeverage.bind(this));
         pubsub.subscribe("fill", this.onFill.bind(this));
+        pubsub.subscribe("error", this.onError.bind(this));
+        
         this.filename='./log_files/log_'+new Date().getTime()+".txt";
+        
         fs.open(this.filename, 'w', function (err, file) {
             if (err) throw err;
             console.log('Saved!');
-          });
-          
+          });  
     }
 
     onUser(data){
-        fs.writeFile(this.filename, `User ${data.name}`, function (err) {
+        fs.appendFile(this.filename, `User ${data.name}\n`, function (err) {
             if (err) throw err;
             console.log('Saved!');
           })
-       
     }
 
     onGlass(data){
-        fs.writeFile(this.filename,`Glass volume= ${data.maxvolume}name =${data.name}`, function (err) {
+        fs.appendFile(this.filename,`Glass volume= ${data.maxvolume}name =${data.name}\n`, function (err) {
             if (err) throw err;
             console.log('Saved!');
           })
     }
 
     onBeverage(data){
-        fs.writeFile(this.filename,`Beverage ${data.name} type ${data.type} volume ${data.volume}`, function (err) {
+        fs.appendFile(this.filename,`Beverage ${data.name} type ${data.type} volume ${data.volume}\n`, function (err) {
             if (err) throw err;
             console.log('Saved!');
           })
     }
 
     onFill(data){
-        fs.writeFile(`fill ${data.name} volume ${data.volume} beverage ${data.beverage}`, function (err) {
+        fs.appendFile(this.filename,`fill ${data.name} volume ${data.volume} beverage ${data.beverage}\n`, function (err) {
             if (err) throw err;
             console.log('Saved!');
           })
     }
+    
+    onError(data){
+        fs.appendFile(this.filename,`error ${data.name}\n`, function (err) {
+            if (err) throw err;
+            console.log('Saved!');
+          })
+    }
+
    
 }
 module.exports = Logger;
+
+// da se upisuje datetime
+// i da se ekstraktuije jedna metoda
