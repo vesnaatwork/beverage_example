@@ -3,27 +3,25 @@
 // greske
 // warning
 // success
+//info
 
-
-// pub sub pattern
-// samo formatira poruke za izlaz i komunicira sa consolom
-class PubSub{
-  constructor(){
-    this.subscribers = {}
+class PubSub {
+  constructor() {
+    this.subscribers = {};
   }
   publish(eventName, data) {
     if (!Array.isArray(this.subscribers[eventName])) {
-      return
+      return;
     }
-    this.subscribers[eventName].forEach((callback) => {
-      callback(data)
-    })
+    this.subscribers[eventName].forEach(callback => {
+      callback(data);
+    });
   }
-  subscribe (eventName, callback) {
+  subscribe(eventName, callback) {
     if (!Array.isArray(this.subscribers[eventName])) {
-      this.subscribers[eventName] = []
+      this.subscribers[eventName] = [];
     }
-    this.subscribers[eventName].push(callback)
+    this.subscribers[eventName].push(callback);
   }
 }
 module.exports = PubSub;
