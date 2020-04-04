@@ -1,4 +1,5 @@
 
+const chalk=require('chalk');
 class Presenter {
   constructor(pubsub) {
     pubsub.subscribe("user", this.onUser.bind(this));
@@ -9,32 +10,30 @@ class Presenter {
   }
 
   onUser(data) {
-    console.log(`User ${data.name}`);
+    console.log(chalk.green(`User ${data.name}`));
   }
 
   onGlass(data) {
-    console.log(`Glass volume= ${data.maxvolume}name =${data.name}`);
+    console.log(chalk.green(`Glass volume= ${data.maxvolume}name =${data.name}`));
   }
 
   onBeverage(data) {
     console.log(
-      `Beverage ${data.name} type ${data.type} volume ${data.volume}`
-    );
+      chalk.green(`Beverage ${data.name} type ${data.type} volume ${data.volume}`)
+      );
   }
 
   onFill(data) {
     console.log(
-      `fill ${data.name} volume ${data.volume} beverage ${data.beverage}`
+      chalk.green(`fill ${data.name} volume ${data.volume} beverage ${data.beverage}`)
     );
   }
   onError(data) {
-    console.log(`error ${data.name}`);
+    console.log(chalk.red(`error ${data.name}`));
   }
 }
 module.exports = Presenter;
-//ToDo
-//greske
-//warning
+
 // paket koji u komadnoj liniji boji izlaze, za razlicite tipover, error, warning, success
 
 //samo prezentovanje ispisivanje stvari sta se desilo
