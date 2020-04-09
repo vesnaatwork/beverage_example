@@ -12,7 +12,7 @@ const presenter = new Presenter(ps);
 const logger = new Logger(ps);
 const cli = new CommandLineInterface();
 try {
-//   name = cli.askUser();
+  name = cli.askUser();
   const user = new User("name", ps);
 } catch (error) {
   console.log(error);

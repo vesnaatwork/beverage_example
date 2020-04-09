@@ -1,9 +1,4 @@
-// samo prezentovanje ispisivanje stvari sta se desilo
-// informativne poruke kreiran su objekti, nakon akcije
-// greske
-// warning
-// success
-//info
+
 
 class PubSub {
   constructor() {
