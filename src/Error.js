@@ -1,16 +1,10 @@
 class ValidationError extends Error {
-<<<<<<< HEAD
   constructor(message) {
     super(message);
     this.name = "ValidationError";
   }
+  toString(){
+    return `Error: ${this.name}`
+  }
 }
 module.exports = ValidationError;
-=======
-    constructor(message) {
-      super(message); 
-      this.name = "ValidationError"; 
-    }
-  }
-  
->>>>>>> Add pubsub for object creation
