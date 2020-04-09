@@ -1,3 +1,4 @@
+const ValidationError = require ('../Error.js');
  class Beverage
 {
     constructor (name,type, volume, pubsub)
@@ -18,9 +19,12 @@
             throw new ValidationError("Volume can't be null")
         }
         else{
-            this.volume = name;
+            this.volume = volume;
         }
-        pubsub.publish ("Beverage", {name:this.name, type:this.type, volume:this.volume})
+        pubsub.publish ("200", this)
+    }
+    toString(){
+      return `Beverage ${this.name} type ${this.type} volume ${this.volume}\n`;
     }
     
     

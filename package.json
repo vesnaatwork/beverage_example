@@ -24,6 +24,9 @@
   },
   "homepage": "https://github.com/vesnaatwork/beverage_example#readme",
   "dependencies": {
-    "mocha": "^7.1.0"
+    "chalk": "^3.0.0",
+    "inquirer": "^7.1.0",
+    "minimist": "^1.2.5",
+    "mocha": "^7.1.1"
   }
 }
