@@ -17,9 +17,8 @@ class Presenter {
 }
 
 module.exports = Presenter;
+//mogu da imam vise metoda 
 
-
-
-//warning
+//warning ne mogu sve da sipam npr.
 
 

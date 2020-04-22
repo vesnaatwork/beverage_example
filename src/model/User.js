@@ -6,7 +6,7 @@ class User
         if (name==null)
             throw  new ValidationError("Name can't be null");
         this.name=name;
-        pubsub.publish({code:200,type:"user"},this);
+        pubsub.publish("200",this);
 
     }
 

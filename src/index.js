@@ -11,16 +11,27 @@ const ps = new PubSub();
 const presenter = new Presenter(ps);
 const logger = new Logger(ps);
 const cli = new CommandLineInterface();
-try {
-//   name = cli.askUser();
-  const user = new User("name", ps);
-} catch (error) {
-  console.log(error);
-}
 
-const beverage = new Beverage("mint", "tea", 200, ps);
-const glass = new Glass(300, "mug", ps);
-glass.fill(beverage, ps);
+
+
+cli.askAllQuestions().
+then(answers =>{
+  const user = new User(answers.name,ps);
+  const beverage = new Beverage(answers.beverageName, answers.type, answers.volume, ps);
+  const glass = new Glass(answers.maxvolume, answers.glassName, ps);
+});
+
+// cli.askBeverage().
+// then(answers =>{
+//   const beverage = new Beverage(answers.name, answers.type, answers.volume, ps);
+// });
+
+// cli.askGlass().
+// then(answers =>{
+//   const glass = new Glass(answers.maxvolume, answers.name, ps);
+// });
+
+// glass.fill(beverage, ps);
 
 //uslozniti akcije za
 //sloj za perzistenciju - to je trenutno stanje sistema, sad je to logger
