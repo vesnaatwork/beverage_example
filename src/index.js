@@ -12,13 +12,16 @@ const presenter = new Presenter(ps);
 const logger = new Logger(ps);
 const cli = new CommandLineInterface();
 
-
-
-cli.askAllQuestions().
-then(answers =>{
-  const user = new User(answers.name,ps);
-  const beverage = new Beverage(answers.beverageName, answers.type, answers.volume, ps);
+cli.askAllQuestions().then((answers) => {
+  const user = new User(answers.name, ps);
+  const beverage = new Beverage(
+    answers.beverageName,
+    answers.type,
+    answers.volume,
+    ps
+  );
   const glass = new Glass(answers.maxvolume, answers.glassName, ps);
+  glass.fill(beverage, ps);
 });
 
 // cli.askBeverage().
@@ -31,14 +34,8 @@ then(answers =>{
 //   const glass = new Glass(answers.maxvolume, answers.name, ps);
 // });
 
-// glass.fill(beverage, ps);
-
-//uslozniti akcije za
-//sloj za perzistenciju - to je trenutno stanje sistema, sad je to logger
 //vise fajlova - kao neka baza -repository ili vise repository-a
 
 //command query separation - fja moze biti komanda ili query
 //exception ako je query samo vracam taj tip ili exception
 //commanda ako nisu ok ulazni podaci exception nisam uspeo ili ne mogu. komanda ce se izvrsiti
-
-//asinhonost sledeci put- log i perzistencija

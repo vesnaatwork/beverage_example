@@ -1,22 +1,40 @@
-fs = require('fs');
-class Logger{
-    constructor(pubsub){
-        pubsub.subscribe("200", this.onEvent.bind(this));  
-        this.filename='./log_files/log_'+new Date().getTime()+".txt";
-        
-        fs.open(this.filename, 'w', function (err, file) {
-            if (err) throw err;
-          }); 
-    }
+fs = require("fs");
+MyDate = require("./MyDate");
+class Logger {
+  constructor(pubsub) {
+    pubsub.subscribe("200", this.onEvent.bind(this));
+    pubsub.subscribe("404", this.onEvent.bind(this));
+    pubsub.subscribe("user",this.logUser.bind(this));
+    this.filename = this.createAndOpenFile("log_");
+  }
 
-    onEvent(data){
-        const date = new Date();
-        fs.appendFile(this.filename,`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}-${date.getMinutes()} ${data.toString()}`, function (err) {
-            if (err) throw err;
-          })
-    }
-   
+  createAndOpenFile(name){
+    const filename = "./log_files/" +name + new Date().getTime() + ".txt";
+    fs.open(filename, "w", function (err, file) {
+      if (err) throw err;
+    });
+    return filename;
+  }
+  logUser(data){
+    const filename = this.createAndOpenFile("user");
+    const myDate = new MyDate();
+    fs.appendFile(
+      filename,
+      `${myDate.toString()} ${data.toString()}`,
+      function (err) {
+        if (err) throw err;
+      }
+    );
+  }
+  onEvent(data) {
+    const myDate = new MyDate();
+    fs.appendFile(
+      this.filename,
+      `${myDate.toString()} ${data.toString()}`,
+      function (err) {
+        if (err) throw err;
+      }
+    );
+  }
 }
 module.exports = Logger;
-
-//izvuci date objekat
