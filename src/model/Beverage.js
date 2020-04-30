@@ -1,8 +1,11 @@
 const ValidationError = require ('../Error.js');
+const MyDate = require ('../util/MyDate');
  class Beverage
 {
     constructor (name,type, volume, pubsub)
     {
+        const mydate = new MyDate();
+        this.date_created = mydate.toString()
         if (name == null){
             throw new ValidationError("Name can't be null")
         }
@@ -21,10 +24,12 @@ const ValidationError = require ('../Error.js');
         else{
             this.volume = volume;
         }
-        pubsub.publish ("200", this)
+        pubsub.publish ("200", this);
+        pubsub.subscribe("beveragecreated",this.constructor.bind(this));
     }
+   
     toString(){
-      return `Beverage ${this.name} type ${this.type} volume ${this.volume}\n`;
+      return JSON.stringify(this);
     }
     
     
