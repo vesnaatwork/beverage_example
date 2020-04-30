@@ -79,8 +79,8 @@ class CommandLineInterface {
       ];
   return inquirer.prompt(allQuestions)
     }
-   
-    async askUser() {
+   //ovde fire-uj event pubsub
+    async askUser(controler) {
       const UserQuestions = [
               {
                 name: "name",
@@ -95,11 +95,17 @@ class CommandLineInterface {
                 }
               }
             ];
-        return inquirer.prompt(UserQuestions)
+        return inquirer.prompt(UserQuestions).then((answers) => { controler.createUser(answers);}).catch(error => {
+          if(error.isTtyError) {
+            console.log(error);
+          } else {
+            console.log(error);
+          }
+        });
       
   }
   
-    async askBeverage() {
+    async askBeverage(controler) {
       const beverageQuestions = [
         {
           name: "name",
@@ -136,7 +142,14 @@ class CommandLineInterface {
           filter: Number
         }
       ];
-      return inquirer.prompt(beverageQuestions);
+      return inquirer.prompt(beverageQuestions).
+      then((answers) => { const user = controler.createBeverage(answers); return user; }).catch(error => {
+        if(error.isTtyError) {
+          console.log(error);
+        } else {
+          console.log(error);
+        }
+      });
     }
     async askGlass() {
       const GlassQuestions = [

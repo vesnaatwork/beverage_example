@@ -1,10 +1,14 @@
+const MyDate=require('../src/util/MyDate')
 class ValidationError extends Error {
-  constructor(message) {
+  constructor(message,pubsub) {
     super(message);
-    this.name = "ValidationError";
+    this.name = message;
+    const mydate = new MyDate();
+    this.date_created = mydate.toString()
+    pubsub.publish("404", this);
   }
   toString(){
-    return `Error: ${this.name}`
+    return JSON.stringify(this)
   }
 }
 module.exports = ValidationError;
